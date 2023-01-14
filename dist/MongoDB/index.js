@@ -33,8 +33,8 @@ const typeDefs = gql `
 
     type Book {
         id:ID!
-        name:String!
-        product:String!
+        title:String!
+        author:String!
         rating:Float!
     }
 
@@ -53,10 +53,20 @@ const typeDefs = gql `
 const resolvers = {
     Query: {
         getBooks: (parent, args) => {
-            return Books.find({});
+            const result = Books.find({}).then((response) => {
+                return response;
+            }).catch((error) => {
+                return error;
+            });
+            return result;
         },
         getBook: (parent, args) => {
-            return Books.findById(args.id);
+            const result = Books.findById(args.id).then((response) => {
+                return response;
+            }).catch((error) => {
+                return error;
+            });
+            return result;
         }
     },
     Mutation: {
@@ -66,12 +76,17 @@ const resolvers = {
                 author: args.author,
                 rating: args.rating
             });
-            return Book.save();
+            const result = Book.save().then((response) => {
+                return response;
+            }).catch((error) => {
+                return error;
+            });
+            return result;
         },
         updateBook: (parent, args) => {
             if (!args.id)
                 return;
-            return Books.findByIdAndUpdate({
+            const result = Books.findByIdAndUpdate({
                 _id: args.id
             }, {
                 $set: {
@@ -85,17 +100,26 @@ const resolvers = {
                 if (err) {
                     console.log('Something went wrong when updating the Book');
                 }
+            }).then((response) => {
+                return response;
+            }).catch((error) => {
+                return error;
             });
+            return result;
         },
         deleteBook: (parent, args) => {
-            return Books.findByIdAndDelete({ _id: args.id });
+            const result = Books.findOneAndRemove({ _id: args.id }).then((response) => {
+                return response;
+            }).catch((error) => {
+                return error;
+            });
+            return result;
         },
     }
 };
 connect
     .then((response) => console.log('MongoDB connected successfully'))
     .catch((err) => console.log('Error While connecting MongoDB', err));
-console.log('DOTENV', dotenv);
 mongoose.set('strictQuery', true);
 const server = new ApolloServer({
     typeDefs: typeDefs,
