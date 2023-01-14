@@ -1,1 +1,1 @@
-# NodeWithGraphQL-TypeScript
+# Node with GraphQL and TypeScript
