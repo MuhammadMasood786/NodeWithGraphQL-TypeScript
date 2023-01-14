@@ -11,7 +11,7 @@
   },
   "scripts": {
     "compile": "tsc",
-    "start": "ts-node src/index.ts"
+    "start": "yarn run compile && ts-node src/index.ts"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
