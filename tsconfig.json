@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+      "rootDirs": ["src"],
+      "outDir": "dist",
+      "lib": ["es2020"],
+      "target": "es2020",
+      "strict": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "types": ["node"]
+    }
+    ,
+   "exclude": ["node_modules", "**/*.spec.ts"],
+   "ts-node": {
+    "esm": true
+}
+}
+
+
+
+// {
+//     "compilerOptions": {
+//         "target": "es2018",
+//         "module": "commonjs",
+//         "jsx": "preserve",
+//         "strict": true,
+//         "esModuleInterop": true,
+//         "lib": ["es2018", "esnext.asynciterable"]
+//     },
+//     "exclude": ["node_modules"]
+// }
+
+
