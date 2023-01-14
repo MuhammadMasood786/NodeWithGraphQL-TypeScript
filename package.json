@@ -1,17 +1,23 @@
 {
   "name": "GraphQlTypeScript",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "src/MongoDB/index.ts",
   "author": "Muhammad Masood <muhammadmasood673@gmail.com>",
   "type": "module",
   "license": "MIT",
   "dependencies": {
     "@apollo/server": "^4.3.0",
-    "graphql": "^16.6.0"
+    "apollo-server-express": "^3.11.1",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "mongoose": "^6.8.3"
   },
   "scripts": {
     "compile": "tsc",
-    "start": "yarn run compile && ts-node src/index.ts"
+    "start": "yarn run compile && ts-node src/MongoDB/index.ts"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
