@@ -5,7 +5,6 @@ import cors from 'cors';
 import * as dotenv from 'dotenv';
 
 import { ApolloServer, gql } from 'apollo-server-express'
-// const url = `mongodb+srv://MMasoodR786:MMasoodR786@cluster0.6xtql.mongodb.net/?retryWrites=true&w=majority`;
 dotenv.config();
 const url = `mongodb+srv://${process.env.MONGODBUSER}:${process.env.MONGOPW}@cluster0.6xtql.mongodb.net/?retryWrites=true&w=majority`;
 const connect = mongoose.connect(url);
@@ -60,6 +59,7 @@ const resolvers = {
     Query: {
         getBooks: (parent: any, args: any) => {
            const result = Books.find({}).then((response) => {
+            console.log("getBooks",response)
                 return response
             }).catch((error)=>{
                 return error

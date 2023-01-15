@@ -54,6 +54,7 @@ const resolvers = {
     Query: {
         getBooks: (parent, args) => {
             const result = Books.find({}).then((response) => {
+                console.log("getBooks", response);
                 return response;
             }).catch((error) => {
                 return error;
